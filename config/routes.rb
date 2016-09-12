@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  post 'search/show'
+
   get 'map/index'
+  get 'search_station/index'
 
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.

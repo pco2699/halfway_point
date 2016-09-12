@@ -11,7 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160730050130) do
+ActiveRecord::Schema.define(version: 20160808132328) do
+
+  create_table "prefectures", force: :cascade do |t|
+    t.integer  "pref_code",  limit: 4
+    t.string   "pref_name",  limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "station_details", force: :cascade do |t|
+    t.integer  "pref_cd",      limit: 4
+    t.integer  "line_cd",      limit: 4
+    t.integer  "station_cd",   limit: 4
+    t.string   "station_name", limit: 255
+    t.float    "longitude",    limit: 24
+    t.float    "latitude",     limit: 24
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "station_prefectures", force: :cascade do |t|
+    t.integer  "line_cd",    limit: 4
+    t.string   "line_name",  limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "Prefecture", limit: 4
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "title",       limit: 255
